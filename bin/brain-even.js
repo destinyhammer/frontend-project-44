@@ -4,17 +4,14 @@ import readlineSync from 'readline-sync';
 import greetings from '../src/cli.js';
 
 const brainEven = (playername = 'Player') => {
-	const getRandomNumber = () => {
-		return Math.round(Math.random() * 100);
-	};
+	const getRandomNumber = () => Math.round(Math.random() * 100);
 
 	const isEven = (number, answer) => {
 		const lowerAnswer = answer.trim().toLowerCase();
 		let result = '';
 		if (number % 2 === 0) {
 			result = lowerAnswer === 'yes' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'yes'.`;
-		}
-		else {
+		} else {
 			result = lowerAnswer === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
 		}
 		return result;
