@@ -8,13 +8,11 @@ const brainEven = (playername = 'Player') => {
 
 	const isEven = (number, answer) => {
 		const lowerAnswer = answer.trim().toLowerCase();
-		let result = '';
 		if (number % 2 === 0) {
-			result = lowerAnswer === 'yes' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'yes'.`;
+			return lowerAnswer === 'yes' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'yes'.`;
 		} else {
-			result = lowerAnswer === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
+			return lowerAnswer === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
 		}
-		return result;
 	};
 	
 	console.log('Answer "yes" if the number is even, otherwise answer "no".');
