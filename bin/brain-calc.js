@@ -32,10 +32,10 @@ const brainCalc = (playername = 'Player') => {
         const question = `${firstNumber} ${action} ${secondNumber}`;
 
         console.log(`Question: ${question}`);
-        const answer = +readlineSync.question(`Your answer: `);
+        const answer = readlineSync.question(`Your answer: `);
         const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
-        if (answer === rightAnswer) {
+        if (answer == rightAnswer) {
             return 'Correct!';
         } else {
             return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
