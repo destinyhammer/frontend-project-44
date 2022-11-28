@@ -32,7 +32,7 @@ const brainCalc = (playername = 'Player') => {
         const question = `${firstNumber} ${action} ${secondNumber}`;
 
         console.log(`Question: ${question}`);
-        const answer = readlineSync.question(`Your answer: `);
+        const answer = readlineSync.question(`Your answer: `).trim();
         const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
         if (answer == rightAnswer) {
