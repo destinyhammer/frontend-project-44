@@ -1,20 +1,14 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import greetings from '../src/cli.js';
+import { greetings, getRandomInt } from '../src/cli.js';
 
 const brainCalc = (playername = 'Player') => {
     const actions = ['+', '-', '*'];
     
-    const getRandomInt = (min = 0, max = 100) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
     const getRandomAction = () => {
-        const max = actions.length;
-        const actionIndex = getRandomInt(0, actions.length - 1);
+        const max = actions.length - 1;
+        const actionIndex = getRandomInt(0, max);
         return actions[actionIndex];
     };
 

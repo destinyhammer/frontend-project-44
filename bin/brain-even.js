@@ -1,15 +1,9 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import greetings from '../src/cli.js';
+import { greetings, getRandomInt } from '../src/cli.js';
 
 const brainEven = (playername = 'Player') => {
-	const getRandomInt = (min = 0, max = 100) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
 	const isEven = (number) => number % 2 === 0;
 
 	const checkAnswer = (number, answer) => {
