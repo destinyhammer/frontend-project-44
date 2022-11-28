@@ -4,7 +4,11 @@ import readlineSync from 'readline-sync';
 import greetings from '../src/cli.js';
 
 const brainEven = (playername = 'Player') => {
-	const getRandomNumber = () => Math.round(Math.random() * 100);
+	const getRandomInt = (min = 0, max = 100) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
 
 	const isEven = (number) => number % 2 === 0;
 
@@ -19,7 +23,7 @@ const brainEven = (playername = 'Player') => {
 	console.log('Answer "yes" if the number is even, otherwise answer "no".');
 	
 	for (let i = 1; i <= 3; i += 1) {
-		const rand = getRandomNumber();
+		const rand = getRandomInt();
 		console.log('Question:', rand);
 		const answer = readlineSync.question(`Your answer: `);
 		const out = checkAnswer(rand, answer);		
