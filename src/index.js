@@ -16,3 +16,18 @@ export const greetings = () => {
   console.log(`Hello, ${playerName}!`);
   return playerName;
 };
+
+export const startGame = (functionName, playerName, gameHeader, rounds = 3) => {
+  console.log(gameHeader || 'Header is not defined');
+  for (let i = 1; i <= rounds; i += 1) {
+    const currentQuestion = functionName();
+    if (currentQuestion.indexOf('wrong') !== -1) {
+      console.log(currentQuestion);
+      console.log(`Let's try again, ${playerName}!`);
+      return false;
+    }
+    console.log(currentQuestion);
+  }
+  console.log(`Congratulations, ${playerName}!`);
+  return true;
+};

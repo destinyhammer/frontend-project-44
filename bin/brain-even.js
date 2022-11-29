@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/index.js';
+import { greetings, getRandomInt, startGame } from '../src/index.js';
 
 const brainEven = () => {
+  const gameHeader = 'Answer "yes" if the number is even, otherwise answer "no".';
   const isEven = (number) => number % 2 === 0;
 
   const checkAnswer = (number, answer) => {
@@ -24,19 +25,7 @@ const brainEven = () => {
 
   const playerName = greetings();
 
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-  for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = askQuestion();
-    if (currentQuestion.indexOf('wrong') !== -1) {
-      console.log(currentQuestion);
-      console.log(`Let's try again, ${playerName}!`);
-      return;
-    }
-    console.log(currentQuestion);
-  }
-
-  console.log(`Congratulations, ${playerName}!`);
+  startGame(3, askQuestion, playerName, gameHeader);
 };
 
 brainEven();

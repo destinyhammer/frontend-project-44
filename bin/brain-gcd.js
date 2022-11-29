@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/index.js';
+import { greetings, getRandomInt, startGame } from '../src/index.js';
 
 const brainGcd = () => {
+  const gameHeader = 'Find the greatest common divisor of given numbers.';
   const getBcd = (x, y) => {
     if (y > x) {
       return getBcd(y, x);
@@ -31,19 +32,7 @@ const brainGcd = () => {
 
   const playerName = greetings();
 
-  console.log('Find the greatest common divisor of given numbers.');
-
-  for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = askQuestion();
-    if (currentQuestion.indexOf('wrong') !== -1) {
-      console.log(currentQuestion);
-      console.log(`Let's try again, ${playerName}!`);
-      return;
-    }
-    console.log(currentQuestion);
-  }
-
-  console.log(`Congratulations, ${playerName}!`);
+  startGame(3, askQuestion, playerName, gameHeader);
 };
 
 brainGcd();

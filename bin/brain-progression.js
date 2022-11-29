@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/index.js';
+import { greetings, getRandomInt, startGame } from '../src/index.js';
 
 const brainProgression = () => {
+  const gameHeader = 'What number is missing in the progression?';
   const getProgression = () => {
     const progression = [];
     const elementsCount = getRandomInt(5, 10);
-    const interval = getRandomInt(2, 5);
+    const interval = getRandomInt(2, 7);
     const emptyElementIndex = getRandomInt(0, elementsCount - 1);
     let startElement = getRandomInt(1, 100);
     let deletedElement = 0;
@@ -36,19 +37,8 @@ const brainProgression = () => {
   };
 
   const playerName = greetings();
-  console.log('What number is missing in the progression?');
 
-  for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = askQuestion();
-    if (currentQuestion.indexOf('wrong') !== -1) {
-      console.log(currentQuestion);
-      console.log(`Let's try again, ${playerName}!`);
-      return;
-    }
-    console.log(currentQuestion);
-  }
-
-  console.log(`Congratulations, ${playerName}!`);
+  startGame(3, askQuestion, playerName, gameHeader);
 };
 
 brainProgression();

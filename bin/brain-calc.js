@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/index.js';
+import { greetings, getRandomInt, startGame } from '../src/index.js';
 
 const brainCalc = () => {
+  const gameHeader = 'What is the result of the expression?';
   const actions = ['+', '-', '*'];
 
   const getRandomAction = () => {
@@ -43,19 +44,7 @@ const brainCalc = () => {
 
   const playerName = greetings();
 
-  console.log('What is the result of the expression?');
-
-  for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = askQuestion();
-    if (currentQuestion.indexOf('wrong') !== -1) {
-      console.log(currentQuestion);
-      console.log(`Let's try again, ${playerName}!`);
-      return;
-    }
-    console.log(currentQuestion);
-  }
-
-  console.log(`Congratulations, ${playerName}!`);
+  startGame(3, askQuestion, playerName, gameHeader);
 };
 
 brainCalc();
