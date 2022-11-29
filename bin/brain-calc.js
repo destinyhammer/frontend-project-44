@@ -25,7 +25,7 @@ const brainCalc = () => {
     }
   };
 
-  const setQuestion = () => {
+  const askQuestion = () => {
     const firstNumber = getRandomInt(0, 100);
     const secondNumber = getRandomInt(0, 10);
     const action = getRandomAction();
@@ -46,7 +46,7 @@ const brainCalc = () => {
   console.log('What is the result of the expression?');
 
   for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = setQuestion();
+    const currentQuestion = askQuestion();
     if (currentQuestion.indexOf('wrong') !== -1) {
       console.log(currentQuestion);
       console.log(`Let's try again, ${playerName}!`);

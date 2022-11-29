@@ -3,25 +3,31 @@
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt } from '../src/index.js';
 
-const brainGcd = () => {
-  const getBcd = (x, y) => {
-    if (y > x) {
-      return getBcd(y, x);
+const brainProgression = () => {
+  const getProgression = () => {
+    const progression = [];
+    const elementsCount = getRandomInt(5, 10);
+    const interval = getRandomInt(2, 5);
+    const emptyElementIndex = getRandomInt(0, elementsCount - 1);
+    let startElement = getRandomInt(1, 100);
+    let deletedElement = 0;
+
+    for (let i = 0; i < elementsCount; i += 1, startElement += interval) {
+      if (i === emptyElementIndex) {
+        progression.push('..');
+        deletedElement = startElement;
+      } else {
+        progression.push(startElement);
+      }
     }
-    if (!y) {
-      return x;
-    }
-    return getBcd(y, x % y);
+
+    return [progression.join(' '), deletedElement];
   };
 
   const askQuestion = () => {
-    const x = getRandomInt(1, 100);
-    const y = getRandomInt(1, 100);
-    const question = `${x} ${y}`;
-
+    const [question, rightAnswer] = getProgression();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ').trim();
-    const rightAnswer = getBcd(x, y);
 
     if (+answer === rightAnswer) {
       return 'Correct!';
@@ -30,8 +36,7 @@ const brainGcd = () => {
   };
 
   const playerName = greetings();
-
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log('What number is missing in the progression?');
 
   for (let i = 1; i <= 3; i += 1) {
     const currentQuestion = askQuestion();
@@ -46,6 +51,6 @@ const brainGcd = () => {
   console.log(`Congratulations, ${playerName}!`);
 };
 
-brainGcd();
+brainProgression();
 
-export default brainGcd;
+export default brainProgression;

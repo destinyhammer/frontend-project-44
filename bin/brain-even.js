@@ -13,7 +13,7 @@ const brainEven = () => {
     return answer.toLowerCase() === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
   };
 
-  const setQuestion = () => {
+  const askQuestion = () => {
     const number = getRandomInt(1, 100);
 
     console.log(`Question: ${number}`);
@@ -27,7 +27,7 @@ const brainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 1; i <= 3; i += 1) {
-    const currentQuestion = setQuestion();
+    const currentQuestion = askQuestion();
     if (currentQuestion.indexOf('wrong') !== -1) {
       console.log(currentQuestion);
       console.log(`Let's try again, ${playerName}!`);
