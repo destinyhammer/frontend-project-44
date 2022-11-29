@@ -14,21 +14,29 @@ const brainEven = () => {
 		}
 	};
 
+	const setQuestion = () => {
+        const number = getRandomInt(1, 100);
+
+        console.log(`Question: ${number}`);
+        const answer = readlineSync.question(`Your answer: `).trim();
+
+		return checkAnswer(number, answer);
+    };
+
 	const playerName = greetings();
 	
 	console.log('Answer "yes" if the number is even, otherwise answer "no".');
 	
-	for (let i = 1; i <= 3; i += 1) {
-		const rand = getRandomInt();
-		console.log('Question:', rand);
-		const answer = readlineSync.question(`Your answer: `);
-		const out = checkAnswer(rand, answer);		
-		console.log(out);
-		if (out.indexOf('wrong') !== -1) {
-			console.log(`Let's try again, ${playerName}!`);
-			return;
-		}
-	}
+    for (let i = 1; i <= 3; i += 1) {
+        const currentQuestion = setQuestion();
+        if (currentQuestion.indexOf('wrong') !== -1) {
+            console.log(currentQuestion);
+            console.log(`Let's try again, ${playerName}!`);
+            return;
+        }
+        console.log(currentQuestion);
+    }
+
 	console.log(`Congratulations, ${playerName}!`);
 };
 
