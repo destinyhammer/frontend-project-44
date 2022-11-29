@@ -10,3 +10,10 @@ export const getRandomInt = (min = 0, max = 100) => {
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+export const greetings = () => {
+	console.log('Welcome to the Brain Games!');
+	const playerName = getPlayerName();
+	console.log(`Hello, ${playerName}!`);
+	return playerName;
+};
