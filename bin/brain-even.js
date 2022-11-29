@@ -25,7 +25,7 @@ const brainEven = () => {
 
   const playerName = greetings();
 
-  startGame(3, askQuestion, playerName, gameHeader);
+  startGame(askQuestion, playerName, gameHeader, 3);
 };
 
 brainEven();
