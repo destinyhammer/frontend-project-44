@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/cli.js';
+import { getPlayerName, getRandomInt } from '../src/cli.js';
 
-const brainEven = (playername = 'Player') => {
+const brainEven = () => {
 	const isEven = (number) => number % 2 === 0;
 
 	const checkAnswer = (number, answer) => {
@@ -13,6 +13,10 @@ const brainEven = (playername = 'Player') => {
 			return answer.toLowerCase() === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
 		}
 	};
+
+	console.log('Welcome to the Brain Games!');
+	const playerName = getPlayerName();
+	console.log(`Hello, ${playerName}!`);
 	
 	console.log('Answer "yes" if the number is even, otherwise answer "no".');
 	
@@ -23,13 +27,13 @@ const brainEven = (playername = 'Player') => {
 		const out = checkAnswer(rand, answer);		
 		console.log(out);
 		if (out.indexOf('wrong') !== -1) {
-			console.log(`Let's try again, ${playername}!`);
+			console.log(`Let's try again, ${playerName}!`);
 			return;
 		}
 	}
-	console.log(`Congratulations, ${playername}!`);
+	console.log(`Congratulations, ${playerName}!`);
 };
 
-brainEven(greetings());
+brainEven();
 
 export default brainEven;

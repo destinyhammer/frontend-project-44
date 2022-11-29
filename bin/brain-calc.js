@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt } from '../src/cli.js';
+import { getPlayerName, getRandomInt } from '../src/cli.js';
 
-const brainCalc = (playername = 'Player') => {
+const brainCalc = () => {
     const actions = ['+', '-', '*'];
     
     const getRandomAction = () => {
@@ -42,22 +42,26 @@ const brainCalc = (playername = 'Player') => {
         }
     };
 
+    console.log('Welcome to the Brain Games!');
+	const playerName = getPlayerName();
+	console.log(`Hello, ${playerName}!`);
+
     console.log('What is the result of the expression?');
 
     for (let i = 1; i <= 3; i += 1) {
         const currentQuestion = setQuestion();
         if (currentQuestion.indexOf('wrong') !== -1) {
             console.log(currentQuestion);
-            console.log(`Let's try again, ${playername}!`);
+            console.log(`Let's try again, ${playerName}!`);
             return;
         }
         console.log(currentQuestion);
     }
 
-    console.log(`Congratulations, ${playername}!`);
+    console.log(`Congratulations, ${playerName}!`);
 
 };
 
-brainCalc(greetings());
+brainCalc();
 
 export default brainCalc;

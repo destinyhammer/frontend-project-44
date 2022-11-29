@@ -1,10 +1,8 @@
 import readlineSync from 'readline-sync';
 
-export const greetings = () => {
+export const getPlayerName = () => {
 	const nameless = 'Player';
-	const getUserName = readlineSync.question(`What is your name?: `) || nameless;
-	console.log(`Hello, ${getUserName}!`);
-	return getUserName;
+	return readlineSync.question(`What is your name?: `) || nameless;
 };
 
 export const getRandomInt = (min = 0, max = 100) => {
