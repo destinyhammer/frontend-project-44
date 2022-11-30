@@ -7,12 +7,10 @@ import {
 
 const brainPrime = () => {
   const gameHeader = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
   const isPrime = (number) => {
-    if (number < 1) {
-      return false;
-    }
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) {
+    for (let currentDivider = 2; currentDivider < number; currentDivider += 1) {
+      if (number % currentDivider === 0) {
         return false;
       }
     }
