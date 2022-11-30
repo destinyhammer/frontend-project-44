@@ -14,13 +14,10 @@ const brainProgression = () => {
     const emptyElementIndex = getRandomInt(0, elementsCount - 1);
     let currentElement = getRandomInt(1, 100);
     for (let i = 0; i < elementsCount; i += 1, currentElement += interval) {
-      if (i === emptyElementIndex) {
-        progression.push('..');
-      } else {
-        progression.push(currentElement);
-      }
+      progression.push(currentElement);
     }
-    return [progression.join(' '), progression[emptyElementIndex - 1] + interval];
+    const deletedElement = progression.splice(emptyElementIndex, 1, '..');
+    return [progression.join(' '), deletedElement[0]];
   };
 
   const askQuestion = () => {
