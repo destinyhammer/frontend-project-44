@@ -10,12 +10,12 @@ const brainCalc = () => {
   const actions = ['+', '-', '*'];
   const getCalculation = (firstNumber, secondNumber, action) => {
     switch (action) {
-      case '+':
-        return +firstNumber + +secondNumber;
       case '-':
         return +firstNumber - +secondNumber;
       case '*':
         return +firstNumber * +secondNumber;
+      default:
+        return +firstNumber + +secondNumber;
     }
   };
 
