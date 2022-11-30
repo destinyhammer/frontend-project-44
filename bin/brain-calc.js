@@ -6,13 +6,6 @@ import { greetings, getRandomInt, startGame } from '../src/index.js';
 const brainCalc = () => {
   const gameHeader = 'What is the result of the expression?';
   const actions = ['+', '-', '*'];
-
-  const getRandomAction = () => {
-    const max = actions.length - 1;
-    const actionIndex = getRandomInt(0, max);
-    return actions[actionIndex];
-  };
-
   const getCalculation = (firstNumber, secondNumber, action) => {
     switch (action) {
       case '+':
@@ -29,10 +22,10 @@ const brainCalc = () => {
   const askQuestion = () => {
     const firstNumber = getRandomInt(0, 100);
     const secondNumber = getRandomInt(0, 10);
-    const action = getRandomAction();
-    const question = `${firstNumber} ${action} ${secondNumber}`;
+    const actionIndex = getRandomInt(0, actions.length - 1);
+    const action = actions[actionIndex];
 
-    console.log(`Question: ${question}`);
+    console.log(`Question: ${firstNumber} ${action} ${secondNumber}`);
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
@@ -43,7 +36,6 @@ const brainCalc = () => {
   };
 
   const playerName = greetings();
-
   startGame(askQuestion, playerName, gameHeader, 3);
 };
 
