@@ -18,13 +18,13 @@ const brainPrime = () => {
   };
 
   const askQuestion = () => {
-    const number = getRandomInt(2, 3571);
+    const number = getRandomInt(2, 100);
 
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = isPrime(number) ? 'yes' : 'no';
 
-    if (answer === rightAnswer) {
+    if (answer.toLowerCase() === rightAnswer) {
       return 'Correct!';
     }
     return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
