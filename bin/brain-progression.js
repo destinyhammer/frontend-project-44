@@ -34,7 +34,6 @@ const brainProgression = () => {
   };
 
   const playerName = greetings();
-
   startGame(askQuestion, playerName, gameHeader, 3);
 };
 
