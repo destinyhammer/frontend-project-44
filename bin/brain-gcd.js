@@ -26,7 +26,7 @@ const brainGcd = () => {
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = getBcd(x, y);
 
-    return checkAnswer(+answer, rightAnswer);
+    return checkAnswer(answer, rightAnswer);
   };
 
   const playerName = greetings();

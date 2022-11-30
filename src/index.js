@@ -33,7 +33,7 @@ export const startGame = (functionName, playerName, gameHeader, rounds = 3) => {
 };
 
 export const checkAnswer = (answer, rightAnswer) => {
-  if (answer === rightAnswer) {
+  if (answer.toString() === rightAnswer.toString()) {
     return 'Correct!';
   }
   return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;

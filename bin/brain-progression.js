@@ -29,7 +29,7 @@ const brainProgression = () => {
     const [question, rightAnswer] = getProgression();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ').trim();
-    return checkAnswer(+answer, rightAnswer);
+    return checkAnswer(answer, rightAnswer);
   };
 
   const playerName = greetings();

@@ -31,7 +31,7 @@ const brainCalc = () => {
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
-    return checkAnswer(+answer, rightAnswer);
+    return checkAnswer(answer, rightAnswer);
   };
 
   const playerName = greetings();
