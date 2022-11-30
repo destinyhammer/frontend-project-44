@@ -14,7 +14,6 @@ const brainProgression = () => {
     const emptyElementIndex = getRandomInt(0, elementsCount - 1);
     let startElement = getRandomInt(1, 100);
     let deletedElement = 0;
-
     for (let i = 0; i < elementsCount; i += 1, startElement += interval) {
       if (i === emptyElementIndex) {
         progression.push('..');
@@ -23,7 +22,6 @@ const brainProgression = () => {
         progression.push(startElement);
       }
     }
-
     return [progression.join(' '), deletedElement];
   };
 
@@ -31,7 +29,6 @@ const brainProgression = () => {
     const [question, rightAnswer] = getProgression();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ').trim();
-
     return checkAnswer(+answer, rightAnswer);
   };
 
@@ -40,5 +37,4 @@ const brainProgression = () => {
 };
 
 brainProgression();
-
 export default brainProgression;
