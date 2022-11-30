@@ -35,7 +35,7 @@ const brainCalc = () => {
   };
 
   const playerName = greetings();
-  startGame(askQuestion, playerName, gameHeader, 3);
+  startGame(askQuestion, playerName, gameHeader);
 };
 
 brainCalc();
