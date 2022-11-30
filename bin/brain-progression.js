@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
+import {
+  greetings, getRandomInt, startGame, checkAnswer,
+} from '../src/index.js';
 
 const brainProgression = () => {
   const gameHeader = 'What number is missing in the progression?';
