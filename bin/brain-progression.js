@@ -12,17 +12,15 @@ const brainProgression = () => {
     const elementsCount = getRandomInt(5, 10);
     const interval = getRandomInt(2, 7);
     const emptyElementIndex = getRandomInt(0, elementsCount - 1);
-    let startElement = getRandomInt(1, 100);
-    let deletedElement = 0;
-    for (let i = 0; i < elementsCount; i += 1, startElement += interval) {
+    let currentElement = getRandomInt(1, 100);
+    for (let i = 0; i < elementsCount; i += 1, currentElement += interval) {
       if (i === emptyElementIndex) {
         progression.push('..');
-        deletedElement = startElement;
       } else {
-        progression.push(startElement);
+        progression.push(currentElement);
       }
     }
-    return [progression.join(' '), deletedElement];
+    return [progression.join(' '), progression[emptyElementIndex - 1] + interval];
   };
 
   const askQuestion = () => {

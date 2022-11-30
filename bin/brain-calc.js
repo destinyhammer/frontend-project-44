@@ -16,8 +16,6 @@ const brainCalc = () => {
         return +firstNumber - +secondNumber;
       case '*':
         return +firstNumber * +secondNumber;
-      default:
-        return +firstNumber + +secondNumber;
     }
   };
 
