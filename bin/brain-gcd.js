@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame } from '../src/index.js';
+import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
 
 const brainGcd = () => {
   const gameHeader = 'Find the greatest common divisor of given numbers.';
@@ -24,10 +24,7 @@ const brainGcd = () => {
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = getBcd(x, y);
 
-    if (+answer === rightAnswer) {
-      return 'Correct!';
-    }
-    return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+    return checkAnswer(+answer, rightAnswer);
   };
 
   const playerName = greetings();

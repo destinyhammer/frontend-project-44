@@ -31,3 +31,10 @@ export const startGame = (functionName, playerName, gameHeader, rounds = 3) => {
   console.log(`Congratulations, ${playerName}!`);
   return true;
 };
+
+export const checkAnswer = (answer, rightAnswer) => {
+  if (answer === rightAnswer) {
+    return 'Correct!';
+  }
+  return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+};

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame } from '../src/index.js';
+import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
 
 const brainCalc = () => {
   const gameHeader = 'What is the result of the expression?';
@@ -29,10 +29,7 @@ const brainCalc = () => {
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
-    if (+answer === rightAnswer) {
-      return 'Correct!';
-    }
-    return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+    return checkAnswer(+answer, rightAnswer);
   };
 
   const playerName = greetings();

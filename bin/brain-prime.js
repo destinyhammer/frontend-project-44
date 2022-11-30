@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame } from '../src/index.js';
+import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
 
 const brainPrime = () => {
   const gameHeader = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -24,10 +24,7 @@ const brainPrime = () => {
     const answer = readlineSync.question('Your answer: ').trim();
     const rightAnswer = isPrime(number) ? 'yes' : 'no';
 
-    if (answer.toLowerCase() === rightAnswer) {
-      return 'Correct!';
-    }
-    return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
+    return checkAnswer(answer.toLowerCase(), rightAnswer);
   };
 
   const playerName = greetings();
