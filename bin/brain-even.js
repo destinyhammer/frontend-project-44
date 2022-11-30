@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
+import {
+  greetings, getRandomInt, startGame, checkAnswer,
+} from '../src/index.js';
 
 const brainEven = () => {
   const gameHeader = 'Answer "yes" if the number is even, otherwise answer "no".';
