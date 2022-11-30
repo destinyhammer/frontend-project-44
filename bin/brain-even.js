@@ -1,26 +1,20 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, startGame } from '../src/index.js';
+import { greetings, getRandomInt, startGame, checkAnswer } from '../src/index.js';
 
 const brainEven = () => {
   const gameHeader = 'Answer "yes" if the number is even, otherwise answer "no".';
   const isEven = (number) => number % 2 === 0;
-
-  const checkAnswer = (number, answer) => {
-    if (isEven(number)) {
-      return answer.toLowerCase() === 'yes' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'yes'.`;
-    }
-    return answer.toLowerCase() === 'no' ? 'Correct!' : `'${answer}' is wrong answer ;(. Correct answer was 'no'.`;
-  };
 
   const askQuestion = () => {
     const number = getRandomInt(1, 100);
 
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ').trim();
+    const rightAnswer = isEven(number) ? 'yes' : 'no';
 
-    return checkAnswer(number, answer);
+    return checkAnswer(answer.toLowerCase(), rightAnswer);
   };
 
   const playerName = greetings();
