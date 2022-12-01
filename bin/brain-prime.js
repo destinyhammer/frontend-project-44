@@ -2,7 +2,7 @@
 
 import readlineSync from 'readline-sync';
 import {
-  greetings, getRandomInt, startGame, checkAnswer,
+  greetings, startGame, askQuestion,
 } from '../src/index.js';
 
 const brainPrime = () => {
@@ -15,19 +15,11 @@ const brainPrime = () => {
     return true;
   };
 
-  const askQuestion = () => {
-    const number = getRandomInt(2, 100);
-
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ').trim();
-    const rightAnswer = isPrime(number) ? 'yes' : 'no';
-
-    return checkAnswer(answer.toLowerCase(), rightAnswer);
-  };
+  const question = askQuestion(2, 100, isPrime);
 
   const playerName = greetings();
 
-  startGame(askQuestion, playerName, gameHeader);
+  startGame(question, playerName, gameHeader);
 };
 
 brainPrime();
