@@ -10,9 +10,7 @@ const brainPrime = () => {
 
   const isPrime = (number) => {
     for (let currentDivider = 2; currentDivider < number; currentDivider += 1) {
-      if (number % currentDivider === 0) {
-        return false;
-      }
+      if (number % currentDivider === 0) return false;
     }
     return true;
   };
