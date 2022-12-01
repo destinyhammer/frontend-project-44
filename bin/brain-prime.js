@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import {
   greetings, startGame, askQuestion,
 } from '../src/index.js';

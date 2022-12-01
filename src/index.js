@@ -39,14 +39,12 @@ export const checkAnswer = (answer, rightAnswer) => {
   return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
 };
 
-export const askQuestion = (minValue, maxValue, checkFunctionName) => {
-  return () => {
-    const number = getRandomInt(minValue, maxValue);
+export const askQuestion = (minValue, maxValue, checkFunctionName) => () => {
+  const number = getRandomInt(minValue, maxValue);
 
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ').trim();
-    const rightAnswer = checkFunctionName(number) ? 'yes' : 'no';
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ').trim();
+  const rightAnswer = checkFunctionName(number) ? 'yes' : 'no';
 
-    return checkAnswer(answer.toLowerCase(), rightAnswer);
-  };
+  return checkAnswer(answer.toLowerCase(), rightAnswer);
 };
