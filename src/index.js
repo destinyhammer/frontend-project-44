@@ -10,7 +10,7 @@ export const getRandomInt = (min = 0, max = 100) => {
   return result;
 };
 
-export const greetings = () => {
+export const sayHello = () => {
   console.log('Welcome to the Brain Games!');
   const playerName = getPlayerName();
   console.log(`Hello, ${playerName}!`);
@@ -48,3 +48,51 @@ export const askQuestion = (minValue, maxValue, checkFunctionName) => () => {
 
   return checkAnswer(answer.toLowerCase(), rightAnswer);
 };
+
+export const getCalculation = (first, second, action) => {
+  const firstNumber = Number(first);
+  const secondNumber = Number(second);
+
+  switch (action) {
+    case '-':
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
+    default:
+      return firstNumber + secondNumber;
+  }
+};
+
+export const isEven = (number) => number % 2 === 0;
+
+export const getBcd = (x, y) => {
+  if (y > x) {
+    return getBcd(y, x);
+  }
+  if (!y) {
+    return x;
+  }
+  return getBcd(y, x % y);
+};
+
+export const isPrime = (number) => {
+  for (let currentDivider = 2; currentDivider < number; currentDivider += 1) {
+    if (number % currentDivider === 0) return false;
+  }
+  return true;
+};
+
+export const getProgression = () => {
+  const progression = [];
+  const elementsCount = getRandomInt(5, 10);
+  const interval = getRandomInt(2, 7);
+  const emptyElementIndex = getRandomInt(0, elementsCount - 1);
+  let currentElement = getRandomInt(1, 100);
+  for (let i = 0; i < elementsCount; i += 1, currentElement += interval) {
+    progression.push(currentElement);
+  }
+  const deletedElement = progression.splice(emptyElementIndex, 1, '..');
+  return [progression.join(' '), deletedElement[0]];
+};
+
+export const getAnswer = () => readlineSync.question('Your answer: ').trim();
