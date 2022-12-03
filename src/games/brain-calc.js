@@ -1,6 +1,20 @@
 import {
-  sayHello, getRandomInt, startGame, checkAnswer, getCalculation, getAnswer,
+  sayHello, getRandomInt, startGame, checkAnswer, getAnswer,
 } from '../index.js';
+
+const getCalculation = (first, second, action) => {
+  const firstNumber = Number(first);
+  const secondNumber = Number(second);
+
+  switch (action) {
+    case '-':
+      return firstNumber - secondNumber;
+    case '*':
+      return firstNumber * secondNumber;
+    default:
+      return firstNumber + secondNumber;
+  }
+};
 
 const askCalcQuestion = () => {
   const MIN_RANDOM_INT = 0;

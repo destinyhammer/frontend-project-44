@@ -3,17 +3,11 @@
 <a href="https://codeclimate.com/github/destinyhammer/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/8f12e9243f2b3d10ca84/maintainability" /></a>
 
 #### How to install the project:
-<pre>
-    <code>git clone https://github.com/destinyhammer/frontend-project-44</code>
-</pre>
+<pre><code>git clone https://github.com/destinyhammer/frontend-project-44</code></pre>
 
 #### How to start a game:
-<pre>
-    <code>cd /path/to/project/folder</code>
-</pre>
-<pre>
-    <code>brain-game_name</code>
-</pre>
+<pre><code>cd /path/to/project/folder</code></pre>
+<pre><code>brain-game_name</code></pre>
 
 #### Aviable games:
 <ul>

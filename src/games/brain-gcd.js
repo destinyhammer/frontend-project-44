@@ -1,6 +1,16 @@
 import {
-  sayHello, getRandomInt, startGame, checkAnswer, getBcd, getAnswer,
+  sayHello, getRandomInt, startGame, checkAnswer, getAnswer,
 } from '../index.js';
+
+const getBcd = (x, y) => {
+  if (y > x) {
+    return getBcd(y, x);
+  }
+  if (!y) {
+    return x;
+  }
+  return getBcd(y, x % y);
+};
 
 const askGcdQuestion = () => {
   const MIN_RANDOM_INT = 1;
