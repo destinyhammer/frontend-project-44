@@ -10,7 +10,7 @@ const isPrime = (number) => {
 };
 
 const startBrainPrime = () => {
-  const gameHeader = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const MIN_RANDOM_INT = 2;
   const MAX_RANDOM_INT = 100;
 
@@ -18,7 +18,7 @@ const startBrainPrime = () => {
 
   const playerName = sayHello();
 
-  startGame(question, playerName, gameHeader);
+  startGame(question, playerName, gameDescription);
 };
 
 export default startBrainPrime;

@@ -3,16 +3,15 @@ import {
 } from '../index.js';
 
 const getCalculation = (first, second, action) => {
-  const firstNumber = Number(first);
-  const secondNumber = Number(second);
-
   switch (action) {
+    case '+':
+      return first + second;
     case '-':
-      return firstNumber - secondNumber;
+      return first - second;
     case '*':
-      return firstNumber * secondNumber;
+      return first * second;
     default:
-      return firstNumber + secondNumber;
+      throw new Error(`Action "${action}" is not supported`);
   }
 };
 
@@ -36,11 +35,11 @@ const askCalcQuestion = () => {
 };
 
 const startBrainCalc = () => {
-  const gameHeader = 'What is the result of the expression?';
+  const gameDescription = 'What is the result of the expression?';
 
   const playerName = sayHello();
 
-  startGame(askCalcQuestion, playerName, gameHeader);
+  startGame(askCalcQuestion, playerName, gameDescription);
 };
 
 export default startBrainCalc;

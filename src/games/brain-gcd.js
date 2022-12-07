@@ -27,11 +27,11 @@ const askGcdQuestion = () => {
 };
 
 const startBrainGcd = () => {
-  const gameHeader = 'Find the greatest common divisor of given numbers.';
+  const gameDescription = 'Find the greatest common divisor of given numbers.';
 
   const playerName = sayHello();
 
-  startGame(askGcdQuestion, playerName, gameHeader);
+  startGame(askGcdQuestion, playerName, gameDescription);
 };
 
 export default startBrainGcd;

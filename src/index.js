@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const roundsCount = 3;
+
 export const getPlayerName = () => {
   const nameless = 'Player';
   return readlineSync.question('May I have your name? ') || nameless;
@@ -17,10 +19,10 @@ export const sayHello = () => {
   return playerName;
 };
 
-export const startGame = (functionName, playerName, gameHeader, rounds = 3) => {
+export const startGame = (AskQuestionFunction, playerName, gameHeader) => {
   console.log(gameHeader || 'Header is not defined');
-  for (let i = 1; i <= rounds; i += 1) {
-    const currentQuestion = functionName();
+  for (let i = 1; i <= roundsCount; i += 1) {
+    const currentQuestion = AskQuestionFunction();
     if (currentQuestion.indexOf('wrong') !== -1) {
       console.log(currentQuestion);
       console.log(`Let's try again, ${playerName}!`);
