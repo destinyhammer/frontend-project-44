@@ -1,5 +1,5 @@
 import {
-  sayHello, startGame, checkAnswer, getRandomInt, getAnswer,
+  startGame, getRandomInt,
 } from '../index.js';
 
 const getProgression = (elementsCount, interval) => {
@@ -11,7 +11,7 @@ const getProgression = (elementsCount, interval) => {
   return progression;
 };
 
-const askProgressionQuestion = () => {
+const prepareProgressionQuestion = () => {
   const elementsCount = getRandomInt(5, 10);
   const interval = getRandomInt(2, 7);
   const progression = getProgression(elementsCount, interval);
@@ -20,17 +20,12 @@ const askProgressionQuestion = () => {
   const question = progression.join(' ');
   const [rightAnswer] = deletedElement;
 
-  console.log(`Question: ${question}`);
-  const answer = getAnswer();
-  return checkAnswer(answer, rightAnswer);
+  return [question, rightAnswer];
 };
 
 const startBrainProgression = () => {
   const gameDescription = 'What number is missing in the progression?';
-
-  const playerName = sayHello();
-
-  startGame(askProgressionQuestion, playerName, gameDescription);
+  startGame(prepareProgressionQuestion, gameDescription);
 };
 
 export default startBrainProgression;

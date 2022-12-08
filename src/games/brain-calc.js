@@ -1,5 +1,5 @@
 import {
-  sayHello, getRandomInt, startGame, checkAnswer, getAnswer,
+  getRandomInt, startGame,
 } from '../index.js';
 
 const getCalculation = (first, second, action) => {
@@ -15,7 +15,7 @@ const getCalculation = (first, second, action) => {
   }
 };
 
-const askCalcQuestion = () => {
+const prepareCalcQuestion = () => {
   const MIN_RANDOM_INT = 0;
   const MAX_FIRST_NUMBER = 100;
   const MAX_SECOND_NUMBER = 10;
@@ -27,19 +27,15 @@ const askCalcQuestion = () => {
   const firstNumber = getRandomInt(MIN_RANDOM_INT, MAX_FIRST_NUMBER);
   const secondNumber = getRandomInt(MIN_RANDOM_INT, MAX_SECOND_NUMBER);
 
-  console.log(`Question: ${firstNumber} ${action} ${secondNumber}`);
-  const answer = getAnswer();
+  const question = `Question: ${firstNumber} ${action} ${secondNumber}`;
   const rightAnswer = getCalculation(firstNumber, secondNumber, action);
 
-  return checkAnswer(answer, rightAnswer);
+  return [question, rightAnswer];
 };
 
 const startBrainCalc = () => {
   const gameDescription = 'What is the result of the expression?';
-
-  const playerName = sayHello();
-
-  startGame(askCalcQuestion, playerName, gameDescription);
+  startGame(prepareCalcQuestion, gameDescription);
 };
 
 export default startBrainCalc;

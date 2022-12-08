@@ -1,5 +1,5 @@
 import {
-  sayHello, getRandomInt, startGame, checkAnswer, getAnswer,
+  getRandomInt, startGame,
 } from '../index.js';
 
 const getBcd = (x, y) => {
@@ -12,26 +12,21 @@ const getBcd = (x, y) => {
   return getBcd(y, x % y);
 };
 
-const askGcdQuestion = () => {
+const prepareGcdQuestion = () => {
   const MIN_RANDOM_INT = 1;
   const MAX_RANDOM_INT = 100;
   const x = getRandomInt(MIN_RANDOM_INT, MAX_RANDOM_INT);
   const y = getRandomInt(MIN_RANDOM_INT, MAX_RANDOM_INT);
   const question = `${x} ${y}`;
 
-  console.log(`Question: ${question}`);
-  const answer = getAnswer();
   const rightAnswer = getBcd(x, y);
 
-  return checkAnswer(answer, rightAnswer);
+  return [question, rightAnswer];
 };
 
 const startBrainGcd = () => {
   const gameDescription = 'Find the greatest common divisor of given numbers.';
-
-  const playerName = sayHello();
-
-  startGame(askGcdQuestion, playerName, gameDescription);
+  startGame(prepareGcdQuestion, gameDescription);
 };
 
 export default startBrainGcd;
