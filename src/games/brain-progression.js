@@ -17,7 +17,8 @@ const prepareProgressionQuestion = () => {
   const progression = getProgression(elementsCount, interval);
   const emptyElementIndex = getRandomInt(0, progression.length - 1);
   const deletedElement = progression.splice(emptyElementIndex, 1, '..');
-  const question = progression.join(' ');
+  const progressionString = progression.join(' ');
+  const question = `Question: ${progressionString}`;
   const [rightAnswer] = deletedElement;
 
   return [question, rightAnswer];
