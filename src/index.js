@@ -25,13 +25,13 @@ export const prepareYesNoQuestion = (minValue, maxValue, checkFunctionName) => (
   return [question, rightAnswer];
 };
 
-export const startGame = (AskQuestionFunction, gameDescription) => {
+export const startGame = (prepareQuestionFunction, gameDescription) => {
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ') || 'Player';
   console.log(`Hello, ${playerName}!`);
   console.log(gameDescription || 'Description is not defined');
   for (let i = 1; i <= roundsCount; i += 1) {
-    const [currentQuestion, currentRightAnswer] = AskQuestionFunction();
+    const [currentQuestion, currentRightAnswer] = prepareQuestionFunction();
     console.log(currentQuestion);
     const answer = getAnswer().trim().toLowerCase();
     const result = checkAnswer(answer, currentRightAnswer);
