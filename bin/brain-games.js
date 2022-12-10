@@ -1,5 +1,5 @@
 #!/usr/bin/env node
+import readlineSync from 'readline-sync';
 
-import { sayHello } from '../src/index.js';
-
-sayHello();
+console.log('Welcome to the Brain Games!');
+console.log(`Hello, ${readlineSync.question('May I have your name? ') || 'Player'}!`);

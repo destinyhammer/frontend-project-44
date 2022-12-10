@@ -7,13 +7,6 @@ export const getRandomInt = (min = 0, max = 100) => {
   return result;
 };
 
-export const sayHello = () => {
-  console.log('Welcome to the Brain Games!');
-  const playerName = readlineSync.question('May I have your name? ') || 'Player';
-  console.log(`Hello, ${playerName}!`);
-  return playerName;
-};
-
 export const getAnswer = () => readlineSync.question('Your answer: ');
 
 export const checkAnswer = (answer, rightAnswer) => {
@@ -33,7 +26,9 @@ export const prepareYesNoQuestion = (minValue, maxValue, checkFunctionName) => (
 };
 
 export const startGame = (AskQuestionFunction, gameDescription) => {
-  const playerName = sayHello();
+  console.log('Welcome to the Brain Games!');
+  const playerName = readlineSync.question('May I have your name? ') || 'Player';
+  console.log(`Hello, ${playerName}!`);
   console.log(gameDescription || 'Description is not defined');
   for (let i = 1; i <= roundsCount; i += 1) {
     const [currentQuestion, currentRightAnswer] = AskQuestionFunction();
