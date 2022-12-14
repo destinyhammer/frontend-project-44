@@ -4,6 +4,7 @@
 
 #### How to install the project:
 <pre><code>git clone https://github.com/destinyhammer/frontend-project-44</code></pre>
+<pre><code>cd /path/to/project/folder</code></pre>
 <pre><code>make install</code></pre>
 
 #### How to start a game:

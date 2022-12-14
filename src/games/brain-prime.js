@@ -2,10 +2,17 @@ import {
   startGame, prepareYesNoQuestion,
 } from '../index.js';
 
-const isPrime = (number) => {
-  for (let currentDivider = 2; currentDivider < number; currentDivider += 1) {
-    if (number % currentDivider === 0) return false;
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
   }
+
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
   return true;
 };
 

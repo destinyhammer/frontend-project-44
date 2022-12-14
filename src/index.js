@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const roundsCount = 3;
+const ROUNDS_COUNT = 3;
 
 export const getRandomInt = (min = 0, max = 100) => {
   const result = Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + min;
@@ -30,17 +30,15 @@ export const startGame = (prepareQuestionFunction, gameDescription) => {
   const playerName = readlineSync.question('May I have your name? ') || 'Player';
   console.log(`Hello, ${playerName}!`);
   console.log(gameDescription || 'Description is not defined');
-  for (let i = 1; i <= roundsCount; i += 1) {
+  for (let i = 1; i <= ROUNDS_COUNT; i += 1) {
     const [currentQuestion, currentRightAnswer] = prepareQuestionFunction();
     console.log(currentQuestion);
-    const answer = getAnswer().trim().toLowerCase();
-    const result = checkAnswer(answer, currentRightAnswer);
-    if (result.indexOf('wrong') !== -1) {
-      console.log(result);
-      console.log(`Let's try again, ${playerName}!`);
+    const answer = getAnswer().trim();
+    if (String(answer).toLowerCase() !== String(currentRightAnswer).toLowerCase()) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${currentRightAnswer}'.`);
       return false;
     }
-    console.log(result);
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${playerName}!`);
   return true;
