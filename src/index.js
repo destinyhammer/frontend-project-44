@@ -36,6 +36,7 @@ export const startGame = (prepareQuestionFunction, gameDescription) => {
     const answer = getAnswer().trim();
     if (String(answer).toLowerCase() !== String(currentRightAnswer).toLowerCase()) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${currentRightAnswer}'.`);
+      console.log(`Let's try again, ${playerName}!`);
       return false;
     }
     console.log('Correct!');
