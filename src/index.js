@@ -9,13 +9,6 @@ export const getRandomInt = (min = 0, max = 100) => {
 
 export const getAnswer = () => readlineSync.question('Your answer: ');
 
-export const checkAnswer = (answer, rightAnswer) => {
-  if (answer.toString() === rightAnswer.toString()) {
-    return 'Correct!';
-  }
-  return `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`;
-};
-
 export const prepareYesNoQuestion = (minValue, maxValue, checkFunctionName) => () => {
   const number = getRandomInt(minValue, maxValue);
 
