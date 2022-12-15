@@ -27,8 +27,8 @@ const prepareCalcQuestion = () => {
   const firstNumber = getRandomInt(MIN_RANDOM_INT, MAX_FIRST_NUMBER);
   const secondNumber = getRandomInt(MIN_RANDOM_INT, MAX_SECOND_NUMBER);
 
-  const question = `Question: ${firstNumber} ${action} ${secondNumber}`;
-  const rightAnswer = getCalculation(firstNumber, secondNumber, action);
+  const question = `${firstNumber} ${action} ${secondNumber}`;
+  const rightAnswer = getCalculation(firstNumber, secondNumber, action).toString();
 
   return [question, rightAnswer];
 };

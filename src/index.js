@@ -7,27 +7,25 @@ export const getRandomInt = (min = 0, max = 100) => {
   return result;
 };
 
-export const getAnswer = () => readlineSync.question('Your answer: ');
+export const getAnswer = () => readlineSync.question('Your answer: ').trim().toLowerCase();
 
 export const prepareYesNoQuestion = (minValue, maxValue, checkFunctionName) => () => {
-  const number = getRandomInt(minValue, maxValue);
-
-  const question = `Question: ${number}`;
-  const rightAnswer = checkFunctionName(number) ? 'yes' : 'no';
+  const question = getRandomInt(minValue, maxValue);
+  const rightAnswer = checkFunctionName(question) ? 'yes' : 'no';
 
   return [question, rightAnswer];
 };
 
-export const startGame = (prepareQuestionFunction, gameDescription) => {
+export const startGame = (prepareQuestion, gameDescription) => {
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ') || 'Player';
   console.log(`Hello, ${playerName}!`);
   console.log(gameDescription || 'Description is not defined');
   for (let i = 1; i <= ROUNDS_COUNT; i += 1) {
-    const [currentQuestion, currentRightAnswer] = prepareQuestionFunction();
-    console.log(currentQuestion);
-    const answer = getAnswer().trim();
-    if (String(answer).toLowerCase() !== String(currentRightAnswer).toLowerCase()) {
+    const [currentQuestion, currentRightAnswer] = prepareQuestion();
+    console.log(`Question: ${currentQuestion}`);
+    const answer = getAnswer();
+    if (answer !== currentRightAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${currentRightAnswer}'.`);
       console.log(`Let's try again, ${playerName}!`);
       return false;

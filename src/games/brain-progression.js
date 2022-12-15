@@ -2,9 +2,9 @@ import {
   startGame, getRandomInt,
 } from '../index.js';
 
-const getProgression = (elementsCount, interval) => {
+const getProgression = (elementsCount, interval, randomInt) => {
   const progression = [];
-  let currentElement = getRandomInt(1, 100);
+  let currentElement = randomInt;
   for (let i = 0; i < elementsCount; i += 1, currentElement += interval) {
     progression.push(currentElement);
   }
@@ -14,14 +14,14 @@ const getProgression = (elementsCount, interval) => {
 const prepareProgressionQuestion = () => {
   const elementsCount = getRandomInt(5, 10);
   const interval = getRandomInt(2, 7);
-  const progression = getProgression(elementsCount, interval);
+  const randomInt = getRandomInt(1, 100);
+  const progression = getProgression(elementsCount, interval, randomInt);
   const emptyElementIndex = getRandomInt(0, progression.length - 1);
   const deletedElement = progression.splice(emptyElementIndex, 1, '..');
-  const progressionString = progression.join(' ');
-  const question = `Question: ${progressionString}`;
+  const question = progression.join(' ');
   const [rightAnswer] = deletedElement;
 
-  return [question, rightAnswer];
+  return [question, String(rightAnswer)];
 };
 
 const startBrainProgression = () => {

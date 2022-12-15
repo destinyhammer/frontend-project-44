@@ -17,9 +17,9 @@ const prepareGcdQuestion = () => {
   const MAX_RANDOM_INT = 100;
   const x = getRandomInt(MIN_RANDOM_INT, MAX_RANDOM_INT);
   const y = getRandomInt(MIN_RANDOM_INT, MAX_RANDOM_INT);
-  const question = `Question: ${x} ${y}`;
+  const question = `${x} ${y}`;
 
-  const rightAnswer = getBcd(x, y);
+  const rightAnswer = getBcd(x, y).toString();
 
   return [question, rightAnswer];
 };
